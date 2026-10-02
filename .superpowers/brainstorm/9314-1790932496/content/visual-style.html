@@ -1,0 +1,85 @@
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<h2>Which luxury direction feels right?</h2>
+<p class="subtitle">Each card is the same workout screen rendered in that brand system. Click the one you'd want to open every morning.</p>
+
+<div class="cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+
+  <!-- A: THE FORGE -->
+  <div class="card" data-choice="forge" onclick="toggleSelect(this)" style="padding:0;border-radius:16px;overflow:hidden;border:1px solid rgba(201,161,94,.25)">
+    <div style="background:radial-gradient(120% 90% at 50% -10%, #2a1c0d 0%, #171008 45%, #0b0806 100%);padding:28px 22px 22px;font-family:'Inter Tight',sans-serif">
+      <div style="font-family:Fraunces,serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#C9A15E;margin-bottom:18px">SPOTTER</div>
+      <div style="font-family:Fraunces,serif;font-size:26px;color:#F3E9D7;margin-bottom:4px">Bench Press</div>
+      <div style="font-size:12px;color:rgba(243,233,215,.45);margin-bottom:20px">Week 9 · Pull — under the lamp</div>
+      <div style="background:linear-gradient(180deg,#241809,#1a1107);border:1px solid rgba(201,161,94,.2);border-radius:12px;padding:16px;box-shadow:0 12px 40px rgba(0,0,0,.6)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,233,215,.5)">Working set</span>
+          <span style="font-family:Fraunces,serif;font-size:22px;color:#E8CE9C">82.5 kg × 5</span>
+        </div>
+        <div style="height:4px;background:rgba(201,161,94,.15);border-radius:2px;overflow:hidden"><div style="width:72%;height:100%;background:linear-gradient(90deg,#8a6a33,#E8CE9C)"></div></div>
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <div style="flex:1;text-align:center;padding:9px 0;border:1px solid rgba(201,161,94,.35);border-radius:8px;font-size:12px;color:#C9A15E">LOG SET</div>
+          <div style="flex:1;text-align:center;padding:9px 0;background:#C9A15E;border-radius:8px;font-size:12px;font-weight:600;color:#171008">PR ✦ +2.5</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-size:11px;color:rgba(243,233,215,.35);font-family:Fraunces,serif;font-style:italic">"From darkness, brilliance."</div>
+    </div>
+    <div class="card-body" style="padding:14px 16px">
+      <h3>A — The Forge (Baroque)</h3>
+      <p>Warm void blacks, single brass light, serif with stroke contrast. Deepens the app's existing dark UI — most premium per pixel, least rework.</p>
+    </div>
+  </div>
+
+  <!-- B: QUIET LUXURY -->
+  <div class="card" data-choice="quiet" onclick="toggleSelect(this)" style="padding:0;border-radius:16px;overflow:hidden;border:1px solid rgba(62,43,28,.15)">
+    <div style="background:#F4F1EA;padding:28px 22px 22px;font-family:'Inter Tight',sans-serif">
+      <div style="font-family:Fraunces,serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#3E2B1C;margin-bottom:18px">SPOTTER</div>
+      <div style="font-family:Fraunces,serif;font-size:26px;color:#1A1815;margin-bottom:4px">Bench Press</div>
+      <div style="font-size:12px;color:rgba(26,24,21,.5);margin-bottom:20px">Week 9 · Pull</div>
+      <div style="background:#FFFDF8;border:1px solid rgba(62,43,28,.12);border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(62,43,28,.08)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,24,21,.45)">Working set</span>
+          <span style="font-family:Fraunces,serif;font-size:22px;color:#3E2B1C">82.5 kg × 5</span>
+        </div>
+        <div style="height:4px;background:rgba(62,43,28,.1);border-radius:2px;overflow:hidden"><div style="width:72%;height:100%;background:#3E2B1C"></div></div>
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <div style="flex:1;text-align:center;padding:9px 0;border:1px solid rgba(62,43,28,.3);border-radius:8px;font-size:12px;color:#3E2B1C">LOG SET</div>
+          <div style="flex:1;text-align:center;padding:9px 0;background:#1A1815;border-radius:8px;font-size:12px;font-weight:600;color:#F4F1EA">PR +2.5</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-size:11px;color:rgba(26,24,21,.4);letter-spacing:.06em">The leather-bound training journal.</div>
+    </div>
+    <div class="card-body" style="padding:14px 16px">
+      <h3>B — Quiet Luxury (Editorial)</h3>
+      <p>Ivory paper, espresso ink, whisper-thin rules. Beautiful — but a full light-mode inversion touching every component, and poor gym-glow ergonomics.</p>
+    </div>
+  </div>
+
+  <!-- C: INSTRUMENT -->
+  <div class="card" data-choice="instrument" onclick="toggleSelect(this)" style="padding:0;border-radius:16px;overflow:hidden;border:1px solid rgba(184,188,194,.15)">
+    <div style="background:linear-gradient(180deg,#181c20,#101214);padding:28px 22px 22px;font-family:'IBM Plex Mono',monospace">
+      <div style="font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#B8BCC2;margin-bottom:18px">SPOTTER·</div>
+      <div style="font-size:24px;font-weight:500;color:#E8EAED;margin-bottom:4px">BENCH PRESS</div>
+      <div style="font-size:11px;color:rgba(232,234,237,.4);margin-bottom:20px">W09 / PULL / TUE</div>
+      <div style="background:#14171a;border:1px solid rgba(184,188,194,.12);border-radius:12px;padding:16px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px">
+          <span style="font-size:10px;letter-spacing:.14em;color:rgba(232,234,237,.45)">WORKING SET</span>
+          <span style="font-size:21px;font-weight:500;color:#4A7BA6;font-variant-numeric:tabular-nums">82.5 × 5</span>
+        </div>
+        <div style="height:4px;background:rgba(184,188,194,.12);border-radius:2px;overflow:hidden"><div style="width:72%;height:100%;background:linear-gradient(90deg,#2d4c68,#4A7BA6)"></div></div>
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <div style="flex:1;text-align:center;padding:9px 0;border:1px solid rgba(184,188,194,.3);border-radius:8px;font-size:11px;color:#B8BCC2">LOG SET</div>
+          <div style="flex:1;text-align:center;padding:9px 0;background:#4A7BA6;border-radius:8px;font-size:11px;font-weight:600;color:#0d0f11">PR +2.5</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-size:11px;color:rgba(232,234,237,.35)">Precision instrument. Tabular dials.</div>
+    </div>
+    <div class="card-body" style="padding:14px 16px">
+      <h3>C — Instrument (Technical)</h3>
+      <p>Graphite + sapphire, watch-dial monospace numerals. Reads "precision" but risks reading "another dark dashboard" — coolest of the three.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:20px">Mixing is legitimate — e.g. Forge's palette with Instrument's tabular numerals for weights. Note any mix in the chat.</p>
