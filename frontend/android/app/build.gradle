@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "ch.duartesantos.opengym"
+    namespace "com.caffeinity.spotter"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "ch.duartesantos.opengym"
+        applicationId "com.caffeinity.spotter"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 26
