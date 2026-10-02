@@ -1,6 +1,6 @@
 // Mobile build only: how the Coach should run on this phone.
 //
-// Two answers. "Use my self-hosted openGym" hands the whole thing to the paired server — the
+// Two answers. "Use my self-hosted Spotter" hands the whole thing to the paired server — the
 // same Coach the web app has, with whatever provider its admin configured; the phone only has
 // to be paired. "Bring my own API key" runs the pipeline on the phone against Anthropic,
 // OpenAI, Gemini or an OpenAI-compatible endpoint, with a key that stays in secure storage.
@@ -23,8 +23,7 @@ import { ConnectSheet } from './MobileOnboarding.jsx'
 import Icon from '../components/Icon.jsx'
 import { Section, Row, Button, TextField } from '../components/ui.jsx'
 
-// Literal t() calls, so check-source-strings sees the three lines; t(s) over a list of keys hid them.
-const STEPS = () => [t('Loading the exercise catalogue…'), t('Checking the endpoint…'), t('Ready')]
+const STEPS = ['Loading the exercise catalogue…', 'Checking the endpoint…', 'Ready']
 
 // The phone calls the provider through CapacitorHttp, native networking that obeys the
 // platform's cleartext rule, and Android refuses unencrypted http:// from apps
@@ -33,7 +32,7 @@ const STEPS = () => [t('Loading the exercise catalogue…'), t('Checking the end
 // refused up front with the two ways that work: HTTPS in front of the model, or the server's
 // Coach, which has no such rule and reaches http:// on its own network.
 const isCleartext = url => /^http:\/\//i.test(String(url || '').trim())
-const cleartextRefused = () => t('Android blocks unencrypted http:// connections from apps, so this phone can only reach an https:// endpoint. Put HTTPS in front of it (Tailscale or a reverse proxy), or choose “Use my self-hosted openGym”: your server can reach an http:// model on its own network.')
+const cleartextRefused = () => t('Android blocks unencrypted http:// connections from apps, so this phone can only reach an https:// endpoint. Put HTTPS in front of it (Tailscale or a reverse proxy), or choose “Use my self-hosted Spotter”: your server can reach an http:// model on its own network.')
 
 export default function CoachSetup() {
   const nav = useNavigate()
@@ -130,9 +129,9 @@ export default function CoachSetup() {
     toast(t('The Coach is off'))
   }
 
-  const current = coachLocal?.mode === 'server' ? t('Runs on your openGym server')
+  const current = coachLocal?.mode === 'server' ? t('Runs on your Spotter server')
     : coachLocal?.mode === 'byok' ? t('Runs on this phone with your own API key')
-    : t('Off. Choose how the Coach should run.')
+    : t('Off — choose how the Coach should run.')
 
   return <div className="narrow">
     <div className="hdr">
@@ -141,8 +140,8 @@ export default function CoachSetup() {
     </div>
 
     <Section title={t('How should the Coach run?')} footer={current}>
-      <Row icon="rocket" iconTint="var(--indigo)" title={t('Use my self-hosted openGym')}
-        subtitle={user ? (serverHasCoach ? t('Your server runs the Coach with whatever provider its admin set up. Nothing new leaves this phone beyond what already syncs.') : config == null ? t('Loading…') : t('Your server has no Coach enabled. Ask its admin, or bring your own key below.')) : t('Connect to my server')}
+      <Row icon="rocket" iconTint="var(--indigo)" title={t('Use my self-hosted Spotter')}
+        subtitle={user ? (serverHasCoach ? t('Your server runs the Coach with whatever provider its admin set up. Nothing new leaves this phone beyond what already syncs.') : config == null ? t('Loading…') : t('Your server has no Coach enabled — ask its admin, or bring your own key below.')) : t('Connect to my server')}
         accessory="chevron" onClick={() => { if (!user || serverHasCoach) useServer(); else setChoice('server') }} />
       <Row icon="key" iconTint="var(--acc)" title={t('Bring my own API key')}
         subtitle={t('This phone calls the provider directly with your key. Every request is charged to your account.')}
@@ -150,7 +149,7 @@ export default function CoachSetup() {
     </Section>
 
     {choice === 'server' && !serverHasCoach && <div className="card">
-      <div className="muted small">{t('Your server has no Coach enabled. Ask its admin, or bring your own key below.')}</div>
+      <div className="muted small">{t('Your server has no Coach enabled — ask its admin, or bring your own key below.')}</div>
     </div>}
 
     {choice === 'byok' && <>
@@ -178,18 +177,18 @@ export default function CoachSetup() {
 
       <Section title={t('What leaves this phone')}>
         {DATA_CATEGORIES.map(k => {
-          const [title, sub] = CATEGORY_TEXT[k]?.() || [k, '']
-          return <Row key={k} icon="check" iconTint="var(--acc)" title={title} subtitle={sub} />
+          const [title, sub] = CATEGORY_TEXT[k] || [k, '']
+          return <Row key={k} icon="check" iconTint="var(--acc)" title={t(title)} subtitle={t(sub)} />
         })}
       </Section>
       <p className="sect-f" style={{ marginTop: -18, marginBottom: 22, lineHeight: 1.5 }}>
-        {t('Each request goes straight to {0} with your key. Nobody else sees it, and you pay for it.', host || meta.label)}
+        {t('Each request goes straight to {0} with your key — nobody else sees it, and you pay for it.', host || meta.label)}
       </p>
 
       {step >= 0 && <div className="card">
-        {STEPS().map((s, i) => <div key={s} className="row" style={{ gap: 8, padding: '3px 0', opacity: i > step ? .4 : 1 }}>
-          <span style={{ color: i < step || step === 2 ? 'var(--green)' : i === step ? 'var(--acc)' : 'var(--dim)' }}><Icon name={i < step || step === 2 ? 'check' : 'hourglass'} /></span>
-          <span className="small">{s}</span>
+        {STEPS.map((s, i) => <div key={s} className="row" style={{ gap: 8, padding: '3px 0', opacity: i > step ? .4 : 1 }}>
+          <span style={{ color: i < step || step === 2 ? 'var(--green)' : i === step ? 'var(--acc)' : 'var(--dim)' }}><Icon name={i < step || step === 2 ? 'check' : 'timer'} /></span>
+          <span className="small">{t(s)}</span>
         </div>)}
       </div>}
 
