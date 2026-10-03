@@ -1411,7 +1411,7 @@ export default {
   'All synced': '모두 동기화됨',
   'Waiting to sync': '동기화 대기 중',
   'Offline — the server cannot be reached': '오프라인 — 서버에 연결할 수 없음',
-  'Not a Spotter answer (HTTP {0})': 'Spotter 응답이 아님 (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'Spotter 응답이 아님 (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': '서버 주소가 Spotter이 아닌 다른 응답을 보냈습니다 (HTTP {0}). 변경 사항은 이 기기에 보관됩니다.',
   'Server error (HTTP {0})': '서버 오류 (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': '서버가 오류로 응답했습니다 (HTTP {0}). 변경 사항은 이 기기에 보관됩니다.',

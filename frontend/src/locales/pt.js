@@ -1411,7 +1411,7 @@ export default {
   'All synced': 'Tudo sincronizado',
   'Waiting to sync': 'À espera de sincronizar',
   'Offline — the server cannot be reached': 'Offline — não é possível chegar ao servidor',
-  'Not a Spotter answer (HTTP {0})': 'Não é uma resposta do Spotter (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'Não é uma resposta do Spotter (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': 'O endereço do teu servidor respondeu com algo que não é o Spotter (HTTP {0}). As tuas alterações ficam aqui.',
   'Server error (HTTP {0})': 'Erro do servidor (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': 'O teu servidor respondeu com um erro (HTTP {0}). As tuas alterações ficam aqui.',

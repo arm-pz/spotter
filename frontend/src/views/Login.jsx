@@ -119,7 +119,7 @@ export default function Login() {
         <Button icon="sparkles" onClick={register}>{t('Create new profile')}</Button>
         {canGuest && <div style={{ height: 10 }} />}
       </> : <div className="card small muted" style={{ textAlign: 'start' }}>{canGuest
-        ? t("This browser doesn't support passkeys — you can still use Spotter locally on this device.")
+        ? t("This browser doesn't support passkeys — you can still use openGym locally on this device.")
         // Without passkeys and without the guest entrance there is no way in from this browser,
         // so say that plainly instead of offering a local profile that cannot be created.
         : t("This browser doesn't support passkeys, and this instance requires an account. Try a browser or device with passkey support.")}</div>}

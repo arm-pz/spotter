@@ -1411,7 +1411,7 @@ export default {
   'All synced': 'सब सिंक हो गया',
   'Waiting to sync': 'सिंक होने की प्रतीक्षा',
   'Offline — the server cannot be reached': 'ऑफ़लाइन — सर्वर तक नहीं पहुँचा जा सकता',
-  'Not a Spotter answer (HTTP {0})': 'Spotter का जवाब नहीं (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'Spotter का जवाब नहीं (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': 'आपके सर्वर के पते ने Spotter के बजाय कुछ और जवाब दिया (HTTP {0})। आपके बदलाव यहीं रखे हैं।',
   'Server error (HTTP {0})': 'सर्वर त्रुटि (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': 'आपके सर्वर ने त्रुटि के साथ जवाब दिया (HTTP {0})। आपके बदलाव यहीं रखे हैं।',

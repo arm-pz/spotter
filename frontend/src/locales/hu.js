@@ -1414,7 +1414,7 @@ export default {
   'All synced': 'Minden szinkronizálva',
   'Waiting to sync': 'Szinkronizálásra vár',
   'Offline — the server cannot be reached': 'Offline — a szerver nem érhető el',
-  'Not a Spotter answer (HTTP {0})': 'Nem Spotter-válasz (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'Nem Spotter-válasz (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': 'A szervered címe nem Spotter-válasszal felelt (HTTP {0}). A módosításaid itt maradnak.',
   'Server error (HTTP {0})': 'Szerverhiba (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': 'A szervered hibával válaszolt (HTTP {0}). A módosításaid itt maradnak.',

@@ -1411,7 +1411,7 @@ export default {
   'All synced': '已全部同步',
   'Waiting to sync': '等待同步',
   'Offline — the server cannot be reached': '离线——无法连接服务器',
-  'Not a Spotter answer (HTTP {0})': '不是 Spotter 的响应（HTTP {0}）',
+  'Not an Spotter answer (HTTP {0})': '不是 Spotter 的响应（HTTP {0}）',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': '你的服务器地址返回了不属于 Spotter 的内容（HTTP {0}）。你的更改保留在这里。',
   'Server error (HTTP {0})': '服务器错误（HTTP {0}）',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': '你的服务器返回了错误（HTTP {0}）。你的更改保留在这里。',

@@ -1,5 +1,5 @@
 // Mobile build only, first launch: the choice useStore.boot() couldn't make on its own — keep
-// everything on this device, or connect to a self-hosted openGym server instead. See
+// everything on this device, or connect to a self-hosted Spotter server instead. See
 // lib/remote.js for the pairing flow this hands off to.
 import { useState, useRef, useEffect } from 'react'
 import { useStore } from '../store/useStore.js'
@@ -31,8 +31,8 @@ export function ConnectSheet({ close, initialUrl = '', again = false }) {
     <h3>{again ? t('Pair again') : t('Connect to my server')}</h3>
     <div className="muted small" style={{ marginBottom: 14 }}>
       {again
-        ? t(‘Open Settings → “Pair the mobile app” on your Spotter site in a browser and enter the new code shown there. What this phone kept is merged into your account.’)
-        : t(‘Open Settings → “Pair the mobile app” on the Spotter site you’re already signed into, then enter its address and the code shown there.’)}
+        ? t('Open Settings → “Pair the mobile app” on your openGym site in a browser and enter the new code shown there. What this phone kept is merged into your account.')
+        : t('Open Settings → “Pair the mobile app” on the openGym site you’re already signed into, then enter its address and the code shown there.')}
     </div>
     <input ref={ref} className="input" placeholder={t('Server address (e.g. gym.example.com)')} value={url}
       onChange={e => setUrl(e.target.value)} autoCapitalize="none" autoCorrect="off" inputMode="url" />

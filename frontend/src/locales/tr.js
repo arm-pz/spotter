@@ -1411,7 +1411,7 @@ export default {
   'All synced': 'Her şey eşitlendi',
   'Waiting to sync': 'Eşitlenmeyi bekliyor',
   'Offline — the server cannot be reached': 'Çevrimdışı — sunucuya ulaşılamıyor',
-  'Not a Spotter answer (HTTP {0})': 'Spotter yanıtı değil (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'Spotter yanıtı değil (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': 'Sunucunun adresi Spotter dışında bir şeyle yanıt verdi (HTTP {0}). Değişikliklerin burada kalıyor.',
   'Server error (HTTP {0})': 'Sunucu hatası (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': 'Sunucun bir hatayla yanıt verdi (HTTP {0}). Değişikliklerin burada kalıyor.',

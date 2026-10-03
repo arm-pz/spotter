@@ -1285,7 +1285,7 @@ export default {
   'All synced': 'Усе синхронізовано',
   'Waiting to sync': 'Очікує синхронізації',
   'Offline — the server cannot be reached': 'Офлайн — сервер недоступний',
-  'Not a Spotter answer (HTTP {0})': 'Це не відповідь Spotter (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'Це не відповідь Spotter (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': 'За адресою твого сервера відповів не Spotter (HTTP {0}). Твої зміни збережено тут.',
   'Server error (HTTP {0})': 'Помилка сервера (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': 'Твій сервер відповів помилкою (HTTP {0}). Твої зміни збережено тут.',

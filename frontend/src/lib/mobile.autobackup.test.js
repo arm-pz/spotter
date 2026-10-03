@@ -1,4 +1,4 @@
-// Auto-backup on the phone (#161): the copies go into Documents/openGym/, and each write keeps
+// Auto-backup on the phone (#161): the copies go into Documents/Spotter/, and each write keeps
 // the newest fourteen there. Nothing outside that folder, and nothing but the app's own dated
 // backups inside it, is ever deleted.
 import { describe, it, expect, beforeEach, vi } from 'vitest'
@@ -50,7 +50,7 @@ beforeEach(() => {
 })
 
 describe('writeAutoBackup', () => {
-  it('writes today\'s copy into Documents/openGym, not the Documents root', async () => {
+  it('writes today\'s copy into Documents/Spotter, not the Documents root', async () => {
     await writeAutoBackup({ workouts: [{ id: 'w1' }] })
     expect(AUTO_BACKUP_DIR).toBe('openGym')
     expect(JSON.parse(h.files.get('DOCUMENTS/openGym/' + backup(todayISO())))).toEqual({ workouts: [{ id: 'w1' }] })

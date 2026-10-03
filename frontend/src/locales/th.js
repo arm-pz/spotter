@@ -1422,7 +1422,7 @@ export default {
   'All synced': 'ซิงค์ครบแล้ว',
   'Waiting to sync': 'รอซิงค์',
   'Offline — the server cannot be reached': 'ออฟไลน์ — เชื่อมต่อเซิร์ฟเวอร์ไม่ได้',
-  'Not a Spotter answer (HTTP {0})': 'ไม่ใช่การตอบกลับของ Spotter (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'ไม่ใช่การตอบกลับของ Spotter (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': 'ที่อยู่เซิร์ฟเวอร์ของคุณตอบกลับด้วยสิ่งที่ไม่ใช่ Spotter (HTTP {0}) การเปลี่ยนแปลงของคุณยังเก็บไว้ที่นี่',
   'Server error (HTTP {0})': 'เซิร์ฟเวอร์ผิดพลาด (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': 'เซิร์ฟเวอร์ของคุณตอบกลับด้วยข้อผิดพลาด (HTTP {0}) การเปลี่ยนแปลงของคุณยังเก็บไว้ที่นี่',

@@ -1341,7 +1341,7 @@ export default {
   'All synced': 'تمت مزامنة كل شيء',
   'Waiting to sync': 'بانتظار المزامنة',
   'Offline — the server cannot be reached': 'غير متصل — تعذّر الوصول إلى الخادم',
-  'Not a Spotter answer (HTTP {0})': 'ليس ردًّا من Spotter (HTTP {0})',
+  'Not an Spotter answer (HTTP {0})': 'ليس ردًّا من Spotter (HTTP {0})',
   'Your server’s address answered with something other than Spotter (HTTP {0}). Your changes are kept here.': 'ردّ عنوان خادمك بشيء غير Spotter (HTTP {0}). تغييراتك محفوظة هنا.',
   'Server error (HTTP {0})': 'خطأ في الخادم (HTTP {0})',
   'Your server answered with an error (HTTP {0}). Your changes are kept here.': 'ردّ خادمك بخطأ (HTTP {0}). تغييراتك محفوظة هنا.',
