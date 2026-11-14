@@ -167,7 +167,7 @@ function RemovePasskeySheet({ passkey, title, state, close, done }) {
    because each prompt wants a tap of its own (Safari refuses a second prompt opened from the same
    one), and a password, where that is the proof, is typed before either. What it is for: a
    security key, a password manager, a phone through the browser's own QR prompt. Another device
-   that can open openGym itself is easier with a code (DeviceLinkSheet). */
+   that can open Spotter itself is easier with a code (DeviceLinkSheet). */
 function AddPasskeySheet({ state, close, done }) {
   // Blank to start with: what gets added here is rarely this browser (a key, a phone, a manager).
   const [name, setName] = useState('')
