@@ -1679,6 +1679,7 @@ export default {
   'Red': '紅色',
   'Teal': '青色',
   'Yellow': '黃色',
+  'Brass': '黃銅',
   'Enter how long it took (at least 1 minute).': '請輸入花費的時間（至少 1 分鐘）。',
   'Next: {0}, today': '下一個：{0}，今天',
   'Next: {0}': '下一個：{0}',

@@ -264,6 +264,8 @@ export function freshState() {
   // Exercise animations: Small (v1.3.11), a thumbnail beside the exercise name that a tap opens,
   // so the first set is on screen without scrolling. DEF stays 'full' for a profile saved before.
   s.gifSize = 'mini'
+  // Spotter's own colour. DEF stays 'lime': a profile saved before brass existed keeps its green.
+  s.accent = 'brass'
   return s
 }
 
@@ -1828,7 +1830,7 @@ export const useStore = create((set, get) => {
     async resetDemo() {
       const { buildDemoState } = await import('../lib/demoSeed.js')
       markOwed(false)
-      persist(Object.assign(clone(DEF), buildDemoState()), false)
+      persist(Object.assign(clone(DEF), buildDemoState(), { accent: 'brass' }), false)
       // The demo's photos and videos were only ever in this browser, and the reset takes them too.
       await mediaStore.clearAll().catch(() => {})
     },

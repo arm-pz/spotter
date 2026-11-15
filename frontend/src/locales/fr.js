@@ -1698,6 +1698,7 @@ export default {
   'Red': 'Rouge',
   'Teal': 'Turquoise',
   'Yellow': 'Jaune',
+  'Brass': 'Laiton',
   'Enter how long it took (at least 1 minute).': 'Indique combien de temps ça a duré (au moins 1 minute).',
   // --- AI Coach: why a job failed or was refused (lib/coach-api.js JOB_ERRORS, BYOK_ERRORS) ---
   'The Coach isn’t set up on this instance.': 'Le coach n’est pas configuré sur cette instance.',

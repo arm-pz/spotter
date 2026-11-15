@@ -1698,6 +1698,7 @@ export default {
   'Red': 'Rosso',
   'Teal': 'Turchese',
   'Yellow': 'Giallo',
+  'Brass': 'Ottone',
   'Enter how long it took (at least 1 minute).': 'Inserisci quanto è durato (almeno 1 minuto).',
   // --- AI Coach: why a job failed or was refused (lib/coach-api.js JOB_ERRORS, BYOK_ERRORS) ---
   'The Coach isn’t set up on this instance.': 'Il Coach non è configurato su questa istanza.',

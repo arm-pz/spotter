@@ -19,21 +19,23 @@
 /* ---------------------------------------------------------------- tokens -- */
 :root {
   /* surfaces — dark is the default */
-  --bg:        #000000;
-  --bg-el:     #0e0e10;   /* elevated backdrop (sheets, bars) */
-  --surface:   #1c1c1e;   /* card / grouped-list fill */
-  --surface-2: #2c2c2e;   /* pressed + nested fill */
-  --surface-3: #3a3a3c;   /* controls (segmented track, switch off) */
+  /* Iron: a cool graphite ramp, the colour of a rack upright, not screen black */
+  --bg:        #121518;
+  --bg-el:     #171b1f;   /* elevated backdrop (sheets, bars) */
+  --surface:   #1e2327;   /* card / grouped-list fill */
+  --surface-2: #2a3036;   /* pressed + nested fill */
+  --surface-3: #394149;   /* controls (segmented track, switch off) */
 
-  /* text */
-  --label:     #ffffff;
-  --label-2:   rgba(235,235,245,.60);
-  --label-3:   rgba(235,235,245,.32);
-  --label-4:   rgba(235,235,245,.18);
+  /* text: chalk on iron */
+  --label:     #eef0ec;
+  --label-2:   rgba(225,231,228,.64);
+  --label-3:   rgba(225,231,228,.36);
+  --label-4:   rgba(225,231,228,.18);
 
   /* lines */
-  --sep:       rgba(84,84,88,.60);
-  --sep-op:    rgba(84,84,88,.34);   /* for edges sitting over blur */
+  --sep:       rgba(132,146,158,.34);
+  --sep-op:    rgba(132,146,158,.24);   /* for edges sitting over blur */
+  --edge:      rgba(255,255,255,.055);  /* the lit top edge of a plate (cards, tiles) */
   --hair:      .5px;
 
   /* system palette (iOS dark values) */
@@ -42,14 +44,16 @@
   --purple:#bf5af2; --mint:#63e6e2; --brown:#ac8e68; --grey:#8e8e93;
 
   /* accent (per-account, synced) */
-  --acc:  var(--green);
-  --acc-2:#248a3d;
-  --on-acc:#000000;
+  --brass:#d3a95f;        /* a barbell's bushing: the one warm metal on the bar */
+  --acc:  var(--brass);
+  --acc-2:#b08a45;
+  --on-acc:#14110a;
   --acc-soft: color-mix(in srgb, var(--acc) 16%, transparent);
   --acc-line: color-mix(in srgb, var(--acc) 38%, transparent);
 
   /* geometry */
-  --r-sm:8px; --r:12px; --r-lg:16px; --r-xl:22px; --r-card:14px;
+  --r-sm:6px; --r:10px; --r-lg:14px; --r-xl:22px; --r-card:12px;
+  --display:'Barlow Condensed','Arial Narrow',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,system-ui,sans-serif;
   --pad:16px;
   --icon-stroke:1.7;
 
@@ -70,28 +74,33 @@
 }
 
 :root[data-theme="light"] {
-  --bg:        #f2f2f7;
-  --bg-el:     #f7f7fa;
-  --surface:   #ffffff;
-  --surface-2: #ececef;
-  --surface-3: #e3e3e8;
+  /* Chalk: the light theme is a chalk block, cool off-white with graphite ink */
+  --bg:        #e8eae6;
+  --bg-el:     #eff1ed;
+  --surface:   #fbfbf9;
+  --surface-2: #e4e7e2;
+  --surface-3: #d6dad5;
 
-  --label:     #000000;
-  --label-2:   rgba(60,60,67,.60);
-  --label-3:   rgba(60,60,67,.30);
-  --label-4:   rgba(60,60,67,.16);
+  --label:     #14181b;
+  --label-2:   rgba(34,42,48,.66);
+  --label-3:   rgba(34,42,48,.36);
+  --label-4:   rgba(34,42,48,.17);
 
-  --sep:       rgba(60,60,67,.29);
-  --sep-op:    rgba(60,60,67,.20);
+  --sep:       rgba(34,42,48,.22);
+  --sep-op:    rgba(34,42,48,.15);
+  --edge:      rgba(20,24,27,.07);
+  --brass:#8a631a;
 
   --blue:#007aff; --green:#34c759; --red:#ff3b30; --orange:#ff9500;
   --yellow:#ffcc00; --teal:#30b0c7; --indigo:#5856d6; --pink:#ff2d55;
   --purple:#af52de; --mint:#00c7be; --brown:#a2845e; --grey:#8e8e93;
-  --acc-2:#248a3d;
+  --acc-2:#6f4f12;
   --on-acc:#ffffff;
 }
 
 /* accents — Apple's system colours, so a recolour never looks off-system */
+:root[data-accent="brass"] { --acc:var(--brass);  --acc-2:#b08a45; --on-acc:#14110a }
+:root[data-theme="light"][data-accent="brass"] { --acc-2:#6f4f12; --on-acc:#fff }
 :root[data-accent="lime"]  { --acc:var(--green);  --acc-2:#248a3d; --on-acc:#000 }
 :root[data-accent="sky"]   { --acc:var(--blue);   --acc-2:#0060df; --on-acc:#fff }
 :root[data-accent="orange"]{ --acc:var(--orange); --acc-2:#c76b00; --on-acc:#000 }
@@ -112,6 +121,17 @@
 :root[data-theme="light"][data-accent="violet"],
 :root[data-theme="light"][data-accent="pink"],
 :root[data-theme="light"][data-accent="red"]   { --on-acc:#fff }
+
+/* The display face: Barlow Condensed 600, the lettering of plate stamps and rack labels. Titles
+   and the numbers you lift by are set in it; everything you read stays in the system face.
+   Latin only, so other scripts fall through to the system face at the same size. OFL 1.1,
+   assets/fonts/OFL.txt. */
+@font-face{font-family:'Barlow Condensed';font-weight:600;font-style:normal;font-display:swap;
+  src:url('./assets/fonts/barlow-condensed-latin-600-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-weight:600;font-style:normal;font-display:swap;
+  src:url('./assets/fonts/barlow-condensed-latin-ext-600-normal.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
 /* ---------------------------------------------------------------- reset -- */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -400,7 +420,7 @@ h4.sec{
   -webkit-backdrop-filter:saturate(180%) blur(10px);backdrop-filter:saturate(180%) blur(10px);
   border-top:var(--hair) solid var(--sep-op);
 }
-:root[data-theme="light"] #tabbar{background:rgba(249,249,251,.94)}
+:root[data-theme="light"] #tabbar{background:color-mix(in srgb,var(--bg-el) 94%,transparent)}
 #tabbar button{
   flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
   color:var(--label-3);font-size:10px;font-weight:500;letter-spacing:.005em;padding-top:3px;
@@ -456,7 +476,7 @@ h4.sec{
    fully opaque instead. Keep this in sync with the rules above. */
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   #tabbar{background:var(--bg-el)}
-  :root[data-theme="light"] #tabbar{background:#f9f9fb}
+  :root[data-theme="light"] #tabbar{background:var(--bg-el)}
   #timer{background:var(--surface)}
   #toast{background:var(--surface-2)}
 }
@@ -2135,3 +2155,72 @@ button.wl-summary{width:100%;padding:0 0 10px;text-align:start;border-radius:var
 [dir="rtl"] *{letter-spacing:0}
 .exfix-link{display:inline-flex;align-items:center;gap:5px;margin:14px 0 4px;color:var(--label-3);text-decoration:none}
 .list .similar-label{margin:16px 2px 6px;grid-column:1/-1}
+
+/* ------------------------------------------------------------- Spotter -- */
+/* The look, in three moves. (1) Titles and lifted numbers are in the display face. (2) Cards are
+   plates: a flat fill with one lit edge, no shadow, tighter corners. (3) Knurling, the
+   cross-hatch cut into a bar where the hands go, marks the one thing on a screen you are meant
+   to grab: the Start disc and today's session. Nothing else gets a texture. */
+:root{
+  --knurl:
+    repeating-linear-gradient(45deg,rgba(0,0,0,.16) 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(-45deg,rgba(0,0,0,.16) 0 1px,transparent 1px 4px);
+}
+.hdr h1{font-family:var(--display);font-weight:600;letter-spacing:0;line-height:1}
+.hdr h1{font-size:40px}
+@media (max-width:420px){.hdr h1{font-size:36px}}
+/* Scripts the display face does not cover keep the size they were tuned to wrap at. */
+:root:is(:lang(ru),:lang(uk),:lang(ar),:lang(hi),:lang(bn),:lang(th),:lang(ko),:lang(zh),:lang(zh-TW)) .hdr h1{font-family:inherit;font-weight:700;font-size:34px;letter-spacing:-.028em;line-height:1.06}
+@media (max-width:420px){:root:is(:lang(ru),:lang(uk),:lang(ar),:lang(hi),:lang(bn),:lang(th),:lang(ko),:lang(zh),:lang(zh-TW)) .hdr h1{font-size:30px}}
+.sheet h3{font-family:var(--display);font-size:26px;letter-spacing:0;line-height:1.05}
+.card .big,.tile .v,.stat-v,#timer .t,.bw-read .num{font-family:var(--display);font-weight:600;letter-spacing:0}
+.card .big{font-size:38px;line-height:1}
+.tile .v,.stat-v{font-size:34px;line-height:1}
+#timer .t{font-size:34px;line-height:1}
+
+.card,.tile,.sect-b,.item{box-shadow:inset 0 1px 0 var(--edge)}
+.iconbtn{border-radius:var(--r);box-shadow:inset 0 1px 0 var(--edge)}
+.chip{border-radius:var(--r-sm)}
+.tag{border-radius:4px}
+.seg{border-radius:var(--r-sm)}
+.seg-sel{border-radius:4px;box-shadow:inset 0 1px 0 var(--edge)}
+:root[data-theme="light"] .seg{background:var(--surface-3)}
+:root[data-theme="light"] .seg-sel{background:var(--surface)}
+.btn.primary{font-family:var(--display);font-size:21px;letter-spacing:.01em;padding-block:12px}
+.btn.primary.sm{font-size:17px;padding-block:7px}
+.btn.primary.xs{font-size:15px}
+
+/* today's session: a brass-edged slab with a knurled grip where the thumb lands */
+.today-row{
+  position:relative;overflow:hidden;padding:14px 14px 14px 26px;
+  background:var(--surface-2);box-shadow:inset 0 1px 0 var(--edge);
+}
+.today-row::before{
+  content:'';position:absolute;inset-block:0;inset-inline-start:0;width:14px;
+  background:var(--knurl),var(--acc);
+}
+.today-row .lbl2{text-transform:none;letter-spacing:0;font-size:13px;color:var(--label-2)}
+.today-row .ttl{font-family:var(--display);font-weight:600;font-size:24px;line-height:1.05;letter-spacing:0;margin-top:1px}
+.today-row .tag.acc{background:var(--acc);color:var(--on-acc);font-family:var(--display);font-size:17px;font-weight:600;padding:6px 14px;border-radius:var(--r-sm)}
+
+/* the Start disc: a knurled collar */
+#tabbar button.start .cir{
+  background:var(--knurl),var(--acc);
+  box-shadow:0 0 0 3px var(--bg-el),0 0 0 4px var(--acc-line);
+}
+#tabbar button.start.rec .cir{background:var(--knurl),var(--orange);box-shadow:0 0 0 3px var(--bg-el),0 0 0 4px color-mix(in srgb,var(--orange) 40%,transparent)}
+#tabbar button{font-size:11px;letter-spacing:0}
+#tabbar button.on{color:var(--acc)}
+
+/* week strip: today is a plate, not a dot */
+.wday .lbl{text-transform:none;letter-spacing:0;font-size:12px}
+.wday .num{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:0;line-height:1;margin:5px 0}
+.wday.today .num{width:34px;height:34px;border-radius:var(--r-sm);margin:-1px auto}
+.sp-root-title{font-family:var(--display);font-weight:600;font-size:40px;letter-spacing:0;line-height:1}
+:root:is(:lang(ru),:lang(uk),:lang(ar),:lang(hi),:lang(bn),:lang(th),:lang(ko),:lang(zh),:lang(zh-TW)) .sp-root-title{font-family:inherit;font-weight:700;font-size:34px;letter-spacing:-.028em;line-height:1.06}
+.sp-avatar{border-radius:var(--r)}
+.sethead{text-transform:none;letter-spacing:0;font-size:12px}
+.setph,.cal-h{text-transform:none;letter-spacing:0;font-size:12px}
+.whdr-name{font-family:var(--display);font-size:20px;line-height:1.1}
+/* sign-in and first-run: the name is the page */
+.brand-name{font-family:var(--display);font-weight:600;font-size:60px;line-height:1;letter-spacing:.005em;margin:6px 0 8px}

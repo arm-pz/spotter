@@ -632,7 +632,7 @@ function ExerciseBlock({ entryIdx, compact, dense, editing, onToggle, onToggleSi
     {!dense && !thumb && <Media ex={ex} key={entry.id} compact={compact} minimizable />}
     <div className="row between exhd" style={{ marginBottom: 6 }}>
       {thumb && <WorkoutThumb ex={ex} onExpand={() => update(s => { s.gifSize = 'full' })} />}
-      <div style={{ flex: 1, minWidth: 0, fontSize: (compact || dense) ? 17 : 20, fontWeight: 600, letterSpacing: '-.02em', lineHeight: 1.2 }} className={exerciseNameClass(ex)}>{exerciseNameFor(ex)}</div>
+      <div style={{ flex: 1, minWidth: 0, fontSize: (compact || dense) ? 21 : 26, fontWeight: 600, fontFamily: 'var(--display)', lineHeight: 1.1 }} className={exerciseNameClass(ex)}>{exerciseNameFor(ex)}</div>
       <div className="row" style={{ gap: 2, flex: 'none' }}>
         {entry.note && <button className="iconbtn" aria-label={t('Note')} title={t('Note')} style={{ color: 'var(--acc)' }}
           onClick={() => exerciseNoteSheet(entryIdx)}><Icon name="note" /></button>}

@@ -1698,6 +1698,7 @@ export default {
   'Red': 'Kırmızı',
   'Teal': 'Turkuaz',
   'Yellow': 'Sarı',
+  'Brass': 'Pirinç',
   'Enter how long it took (at least 1 minute).': 'Ne kadar sürdüğünü gir (en az 1 dakika).',
   // --- AI Coach: why a job failed or was refused (lib/coach-api.js JOB_ERRORS, BYOK_ERRORS) ---
   'The Coach isn’t set up on this instance.': 'Koç bu sunucuda kurulu değil.',
