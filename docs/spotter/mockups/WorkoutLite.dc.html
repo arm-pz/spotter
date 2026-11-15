@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spotter workout, Lite</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0E4F40}a:hover{color:#062019}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F4EFE4; color: #0E4F40; font-family: Archivo, system-ui, sans-serif; overflow: hidden; display: flex; flex-direction: column; padding: 20px 20px 24px; gap: 16px">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <button aria-label="Minimise workout" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D2C6; background: #FBF8F1; color: #0E4F40; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button>
+    <div style="flex-grow: 1">
+      <div style="font-size: 22px; font-weight: 700; font-stretch: 72%; line-height: 1.05">Push Day</div>
+      <div style="font-size: 14px; color: #3F6A5E">Exercise 1 of 6</div>
+    </div>
+    <button style="height: 44px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #0E4F40; background: transparent; color: #0E4F40; font-family: inherit; font-size: 15px; font-weight: 700">Finish</button>
+  </div>
+
+  <div>
+    <h1 style="margin: 0; font-size: 40px; line-height: 0.98; font-weight: 700; font-stretch: 68%">Barbell Bench Press</h1>
+    <div style="font-size: 15px; color: #3F6A5E; margin-top: 8px">Last time you did 75 kg for 8.</div>
+  </div>
+
+  <div style="display: flex; gap: 8px">
+    <span style="flex: 1; height: 8px; border-radius: 4px; background: #0E4F40"></span>
+    <span style="flex: 1; height: 8px; border-radius: 4px; background: #0E4F40"></span>
+    <span style="flex: 1; height: 8px; border-radius: 4px; background: #FF3A24"></span>
+    <span style="flex: 1; height: 8px; border-radius: 4px; background: #DAD9CB"></span>
+  </div>
+
+  <div style="background: #FBF8F1; border: 1px solid #DAD9CB; border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1; justify-content: center">
+    <div style="font-size: 15px; color: #3F6A5E; text-align: center">Set 3 of 4</div>
+
+    <div style="display: flex; align-items: center; gap: 12px">
+      <button aria-label="Less weight" style="width: 64px; height: 64px; border-radius: 18px; border: 0; background: #E6E6D9; color: #0E4F40; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14"></path></svg></button>
+      <div style="flex-grow: 1; text-align: center">
+        <div style="font-size: 72px; line-height: 1; font-weight: 700; font-stretch: 68%">77.5</div>
+        <div style="font-size: 15px; color: #3F6A5E; margin-top: 2px">kg</div>
+      </div>
+      <button aria-label="More weight" style="width: 64px; height: 64px; border-radius: 18px; border: 0; background: #E6E6D9; color: #0E4F40; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M12 5v14"></path></svg></button>
+    </div>
+
+    <div style="height: 1px; background: #DAD9CB"></div>
+
+    <div style="display: flex; align-items: center; gap: 12px">
+      <button aria-label="Fewer reps" style="width: 64px; height: 64px; border-radius: 18px; border: 0; background: #E6E6D9; color: #0E4F40; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14"></path></svg></button>
+      <div style="flex-grow: 1; text-align: center">
+        <div style="font-size: 72px; line-height: 1; font-weight: 700; font-stretch: 68%">8</div>
+        <div style="font-size: 15px; color: #3F6A5E; margin-top: 2px">times</div>
+      </div>
+      <button aria-label="More reps" style="width: 64px; height: 64px; border-radius: 18px; border: 0; background: #E6E6D9; color: #0E4F40; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M12 5v14"></path></svg></button>
+    </div>
+  </div>
+
+  <button style="height: 68px; border-radius: 20px; border: 0; background: #FF3A24; color: #062019; font-family: inherit; font-size: 26px; font-weight: 700; font-stretch: 80%">Set done</button>
+
+  <div style="display: flex; justify-content: space-between; align-items: center">
+    <button style="height: 44px; padding: 0 4px; border: 0; background: transparent; color: #3F6A5E; font-family: inherit; font-size: 15px">How to do it</button>
+    <button style="height: 44px; padding: 0 4px; border: 0; background: transparent; color: #0E4F40; font-family: inherit; font-size: 15px; font-weight: 700">Skip to next exercise</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -335,8 +335,8 @@ async function pruneAutoBackups({ Filesystem, Directory }, written) {
    and never in S: S syncs and exports, and a content:// address means nothing anywhere else.
 
    { uri, label }       the chosen folder, and its name as the picker showed it
-   { lost, lostLabel }  the folder stopped accepting copies; they go to Documents/openGym again
-   {}                   the default, Documents/openGym */
+   { lost, lostLabel }  the folder stopped accepting copies; they go to Documents/Spotter again
+   {}                   the default, Documents/Spotter */
 export const BACKUP_FOLDER_FILE = 'opengym-backup-folder.json'
 
 // The plugin proxy lives here and is never handed through a promise: a Capacitor plugin proxy
@@ -383,7 +383,7 @@ export async function chooseBackupFolder() {
   return next
 }
 
-/** Back to Documents/openGym; also how the warning about a lost folder is put away. */
+/** Back to Documents/Spotter; also how the warning about a lost folder is put away. */
 export async function resetBackupFolder() {
   const before = await backupFolder()
   if (before.uri) await releaseFolder(before.uri)

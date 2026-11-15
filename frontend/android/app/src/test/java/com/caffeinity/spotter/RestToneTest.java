@@ -1,4 +1,4 @@
-package ch.duartesantos.opengym;
+package com.caffeinity.spotter;
 
 import static org.junit.Assert.*;
 

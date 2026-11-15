@@ -2,7 +2,7 @@
   "appId": "com.caffeinity.spotter",
   "appName": "Spotter",
   "webDir": "dist",
-  "backgroundColor": "#0b0806",
+  "backgroundColor": "#121518",
   "android": {
     "allowMixedContent": true
   }

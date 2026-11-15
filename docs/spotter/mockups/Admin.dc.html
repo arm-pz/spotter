@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spotter admin, features by plan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0E4F40}a:hover{color:#062019}
+</style>
+</helmet>
+<div style="width: 860px; height: 1180px; box-sizing: border-box; background: #F4EFE4; color: #0E4F40; font-family: Archivo, system-ui, sans-serif; padding: 36px 40px; display: flex; flex-direction: column; gap: 20px; overflow: hidden">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px">
+    <div>
+      <h1 style="margin: 0; font-size: 46px; line-height: 1; font-weight: 700; font-stretch: 70%">Features by plan</h1>
+      <div style="font-size: 16px; margin-top: 8px; color: #3F6A5E; max-width: 520px; line-height: 1.4">Switch a feature off for a plan and it disappears from that member's app. Their logged data is kept.</div>
+    </div>
+    <button style="height: 48px; padding: 0 22px; border-radius: 14px; border: 0; background: #0E4F40; color: #F4EFE4; font-family: inherit; font-size: 16px; font-weight: 700; flex: none">Save changes</button>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 14px; background: #FBF8F1; border: 1px solid #DAD9CB; border-radius: 18px; padding: 12px 16px">
+    <span style="font-size: 15px; flex-grow: 1">New members start on</span>
+    <sc-for list="{{plans}}" as="p" hint-placeholder-count="3">
+      <button aria-pressed="{{p.isDefault}}" onClick="{{p.pick}}" style="height: 44px; min-width: 84px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #0E4F40; background: {{p.bg}}; color: {{p.fg}}; font-family: inherit; font-size: 15px; font-weight: 700">{{p.name}}</button>
+    </sc-for>
+  </div>
+
+  <div style="background: #FBF8F1; border: 1px solid #DAD9CB; border-radius: 22px; padding: 4px 20px 10px; flex-grow: 1">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) 84px 84px 84px; align-items: center; padding: 12px 0 8px; font-size: 17px; font-weight: 700; font-stretch: 80%; text-align: center; border-bottom: 1.5px solid #0E4F40">
+      <span></span><span>Lite</span><span>Pro</span><span>Plus</span>
+    </div>
+    <sc-for list="{{rows}}" as="r" hint-placeholder-count="20">
+      <div>
+        <sc-if value="{{r.isGroup}}" hint-placeholder-val="{{false}}">
+          <h2 style="margin: 0; padding: 16px 0 4px; font-size: 14px; font-weight: 600; color: #3F6A5E">{{r.group}}</h2>
+        </sc-if>
+        <sc-if value="{{r.isFeature}}" hint-placeholder-val="{{true}}">
+          <div style="display: grid; grid-template-columns: minmax(0, 1fr) 84px 84px 84px; align-items: center; min-height: 46px; border-top: 1px solid #E6E6D9">
+            <div>
+              <span style="font-size: 16px; font-weight: 600">{{r.name}}</span>
+              <span style="font-size: 14px; color: #3F6A5E; margin-left: 8px">{{r.note}}</span>
+            </div>
+            <sc-for list="{{r.cells}}" as="c" hint-placeholder-count="3">
+              <div style="display: flex; justify-content: center">
+                <button role="switch" aria-checked="{{c.on}}" aria-label="{{c.label}}" disabled="{{c.locked}}" onClick="{{c.toggle}}" style="width: 52px; height: 44px; padding: 0; border: 0; background: transparent; display: flex; align-items: center; justify-content: center">
+                  <span style="width: 46px; height: 26px; border-radius: 13px; background: {{c.track}}; display: flex; align-items: center; justify-content: {{c.side}}; padding: 0 3px; box-sizing: border-box; opacity: {{c.opacity}}"><span style="width: 20px; height: 20px; border-radius: 50%; background: #FBF8F1"></span></span>
+                </button>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":860,"height":1180}}'>
+class Component extends DCLogic {
+constructor(props) {
+  super(props);
+  // [Lite, Pro, Plus]; locked rows are the core of the app and stay on everywhere
+  this.state = { def: 0, flags: {
+    core: [1,1,1], rest: [1,1,1], effort: [0,1,1], settypes: [0,1,1], supersets: [0,1,1], plates: [0,1,1],
+    history: [1,1,1], weight: [1,1,1], records: [0,1,1], strength: [0,1,1], balance: [0,0,1], body: [0,0,1],
+    week: [1,1,1], progression: [0,1,1], rotation: [0,0,1],
+    checkin: [1,1,1], importing: [0,1,1], health: [0,0,1], coach: [0,0,1]
+  } };
+}
+renderVals() {
+  const names = ['Lite', 'Pro', 'Plus'];
+  const list = [
+    ['Logging'],
+    ['core', 'Sets, weight and reps', 'always on', true],
+    ['rest', 'Rest timer', '', false],
+    ['effort', 'Effort rating', 'RIR and RPE', false],
+    ['settypes', 'Set types', 'warm-up, drop set, rest-pause', false],
+    ['supersets', 'Supersets', '', false],
+    ['plates', 'Plate calculator', '', false],
+    ['Progress'],
+    ['history', 'Workout history', 'always on', true],
+    ['weight', 'Body weight', '', false],
+    ['records', 'Personal records', 'PR badges and lists', false],
+    ['strength', 'Strength estimates', '1RM and exercise charts', false],
+    ['balance', 'Muscle balance and recovery', '', false],
+    ['body', 'Measurements and progress photos', '', false],
+    ['Planning'],
+    ['week', 'Weekly schedule', 'always on', true],
+    ['progression', 'Automatic progression', 'suggests the next weight', false],
+    ['rotation', 'Rotation schedule', '', false],
+    ['Extras'],
+    ['checkin', 'Gym check-in card', '', false],
+    ['importing', 'Import from other apps', '', false],
+    ['health', 'Health Connect sync', '', false],
+    ['coach', 'AI coach', '', false]
+  ];
+  const flags = this.state.flags;
+  const rows = list.map((x) => {
+    if (x.length === 1) return { isGroup: true, isFeature: false, group: x[0] };
+    const [id, name, note, locked] = x;
+    return { isGroup: false, isFeature: true, name, note, cells: flags[id].map((v, i) => ({
+      on: !!v, locked, label: name + ' on ' + names[i],
+      track: v ? '#0E4F40' : '#C9D2C6', side: v ? 'flex-end' : 'flex-start', opacity: locked ? 0.45 : 1,
+      toggle: () => { const f = { ...flags, [id]: flags[id].map((w, j) => (j === i ? (w ? 0 : 1) : w)) }; this.setState({ flags: f }); }
+    })) };
+  });
+  const plans = names.map((name, i) => ({
+    name, isDefault: this.state.def === i,
+    bg: this.state.def === i ? '#0E4F40' : 'transparent', fg: this.state.def === i ? '#F4EFE4' : '#0E4F40',
+    pick: () => this.setState({ def: i })
+  }));
+  return { rows, plans };
+}
+}
+</script>
+</body>
+</html>

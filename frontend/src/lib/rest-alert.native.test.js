@@ -201,7 +201,7 @@ describe('the Android side of Vibrate off', () => {
 })
 
 describe('the Android side of the alarm buzz (#375)', () => {
-  const src = name => readFileSync(new URL(`../../android/app/src/main/java/ch/duartesantos/opengym/${name}.java`, import.meta.url), 'utf8')
+  const src = name => readFileSync(new URL(`../../android/app/src/main/java/com/caffeinity/spotter/${name}.java`, import.meta.url), 'utf8')
   const alert = src('RestAlert')
   const plugin = src('RestAlertPlugin')
 

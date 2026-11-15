@@ -222,16 +222,16 @@ export function apiUpload(path, blob, mime, { onProgress, idleMs = 60000, XHR = 
 // "Failed to fetch" is all the WebView says when pairing never got an answer (#329), and it says
 // the same for a wrong address and for a reverse proxy that answered the CORS preflight itself
 // without letting the app's origin in (a Traefik `headers` middleware with an allow-list, which
-// never passes the OPTIONS on to openGym). A no-cors request needs no preflight and tells the two
+// never passes the OPTIONS on to Spotter). A no-cors request needs no preflight and tells the two
 // apart: it settles when the server is there at all. Its answer cannot be read, nor needs to be.
 const PROBE_MS = 5000
 const hostOfBase = base => {
   try { const u = new URL(base); return u.host + u.pathname.replace(/\/$/, '') } catch { return base || '' }
 }
 // What /api/health says when it can be read (the app's native fetch reads it past CORS):
-// 'opengym', 'front' when something in front of openGym answered in its place (a redirect, a
+// 'opengym', 'front' when something in front of Spotter answered in its place (a redirect, a
 // 401/403 or an HTML page: an SSO login, forward-auth, a proxy rule), 'other' for an answer that
-// is just not openGym's (another app's JSON, a proxy's plain "404 page not found"), and null
+// is just not Spotter's (another app's JSON, a proxy's plain "404 page not found"), and null
 // when nothing readable came back.
 async function healthAnswer(base, ms) {
   const ctl = typeof AbortController === 'function' ? new AbortController() : null
@@ -265,20 +265,20 @@ async function whyUnreachable(base, ms) {
     reached = true
   } catch { /* not reachable either */ }
   finally { clearTimeout(timer) }
-  // Something answered. Whether it is openGym needs a readable answer: in the app the native
-  // fetch reads /api/health past CORS. A login page or a proxy rule answering in openGym's place
-  // is not a wrong address, and a page that is simply not openGym's is (#329). No readable
+  // Something answered. Whether it is Spotter needs a readable answer: in the app the native
+  // fetch reads /api/health past CORS. A login page or a proxy rule answering in Spotter's place
+  // is not a wrong address, and a page that is simply not Spotter's is (#329). No readable
   // answer at all leaves the CORS explanation.
   const answer = reached ? await healthAnswer(base, ms) : null
   if (answer === 'front') {
-    return failure(t('That address answers, but a login page or proxy rule replied instead of openGym. Let /api/ through to openGym unchanged. See “Phone app and CORS” in docs/SELF_HOSTING.md.'), 'proxy-answered')
+    return failure(t('That address answers, but a login page or proxy rule replied instead of Spotter. Let /api/ through to Spotter unchanged. See “Phone app and CORS” in docs/SELF_HOSTING.md.'), 'proxy-answered')
   }
   if (answer === 'other') {
-    return failure(t('That address answers, but it isn’t an openGym server. Check the URL.'), 'not-opengym')
+    return failure(t('That address answers, but it isn’t a Spotter server. Check the URL.'), 'not-opengym')
   }
   if (reached) {
     const origin = globalThis.location?.origin || 'https://localhost'
-    return failure(t('Your server was reached, but it refused the app’s request (CORS). If a reverse proxy such as Traefik adds CORS headers, let requests from {0} through to openGym unchanged. See “Phone app and CORS” in docs/SELF_HOSTING.md.', origin), 'cors')
+    return failure(t('Your server was reached, but it refused the app’s request (CORS). If a reverse proxy such as Traefik adds CORS headers, let requests from {0} through to Spotter unchanged. See “Phone app and CORS” in docs/SELF_HOSTING.md.', origin), 'cors')
   }
   // An address typed without a scheme is tried as https://. A home server on plain http gives
   // that try nothing to talk to, while the phone's browser, which tries http, opens it (#428).
